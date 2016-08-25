@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Handler</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Surname</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <button block>
+      <ion-icon name="update">Save</ion-icon>
+    </button>
+  </ion-list>  
+<!--  
+  <ion-list inset>
+    <form #formData='ngForm'>
+      <ion-input type="text" hidden [(ngModel)]="handler.id" ngControl="id"></ion-input>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="handler.name" ngControl="name"></ion-input>
+      </ion-item>
+      <button block (click)="onSubmit(formData.value)">
+        <ion-icon name="update"></ion-icon>
+      </button>
+    </form>
+  </ion-list>
+-->  
+</ion-content>
