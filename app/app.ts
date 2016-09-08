@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ionicBootstrap, Platform, Nav } from 'ionic-angular';
-import { StatusBar } from 'ionic-native';
+import { StatusBar, SQLite } from 'ionic-native';
 
 import { Page1 } from './pages/page1/page1';
 import { Page2 } from './pages/page2/page2';
@@ -39,6 +39,20 @@ class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+      console.log("Device is ready and willing to do your bidding!");
+      let db = new SQLite();
+      db.openDatabase({
+        name: "data.db",
+        location: "default"
+      }).then(() => {
+        db.executeSql("CREATE TABLE IF NOT EXISTS handler (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)", {}).then((data) => {
+          console.log("TABLE CREATED: ", data);
+        }, (error) => {
+          console.log("Unable to excecute sql", error);          
+        })
+      }, (error) => {
+        console.log("Unable to open database");
+      });
     });
   }
 
